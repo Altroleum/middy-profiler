@@ -17,6 +17,6 @@ module.exports.reportToS3 = async function (
         Bucket: bucketName,
         Key: `${pathPrefix}${functionName}/${awsRequestId}/${fileName}.cpuprofile`,
     }
-    const command = PutObjectCommand(params)
+    const command = new PutObjectCommand(params)
     await s3Client.send(command)
 }
